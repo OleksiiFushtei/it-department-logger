@@ -1,0 +1,30 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "Changed hard drive on ws 003",
+      "attention": false,
+      "date": "26-02-2020",
+      "technician": "John Doe"
+    },
+    {
+      "id": 2,
+      "message": "Replace monitor on ws 001",
+      "attention": true,
+      "date": "26-02-2020",
+      "technician": "Jack Smith"
+    }
+  ],
+  "technicians": [
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "firstName": "Jack",
+      "lastName": "Smith"
+    }
+  ]
+}

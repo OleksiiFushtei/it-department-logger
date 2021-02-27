@@ -1,18 +1,18 @@
 {
   "logs": [
     {
-      "id": 1,
-      "message": "Changed hard drive on ws 003",
-      "attention": false,
-      "date": "26-02-2020",
-      "technician": "John Doe"
+      "message": "Cooling system is down on server 001",
+      "attention": true,
+      "technician": "John Doe",
+      "date": "2021-02-27T11:25:58.549Z",
+      "id": 1
     },
     {
       "id": 2,
-      "message": "Replace monitor on ws 001",
-      "attention": true,
-      "date": "26-02-2020",
-      "technician": "Jack Smith"
+      "message": "HDD fixed on ws 003",
+      "attention": false,
+      "technician": "Jack Smith",
+      "date": "2021-02-27T14:45:21.053Z"
     }
   ],
   "technicians": [

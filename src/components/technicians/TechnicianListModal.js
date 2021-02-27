@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import TechnicianItem from './TechnicianItem'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { getTechnicians } from '../../actions/technicianActions'
 
-const TechnicianListModal = () => {
-	const [technicians, setTechnicians] = useState([])
-	const [loading, setLoading] = useState(false)
-
+const TechnicianListModal = ({
+	technician: { technicians, loading },
+	getTechnicians
+}) => {
 	useEffect(() => {
 		getTechnicians()
 		//eslint-disable-next-line
 	}, [])
-
-	const getTechnicians = async () => {
-		setLoading(true)
-		const res = await fetch('/technicians')
-		const data = await res.json()
-		setTechnicians(data)
-		setLoading(false)
-	}
 
 	return (
 		<div id="technician-list-modal" className="modal">
@@ -24,6 +19,7 @@ const TechnicianListModal = () => {
 				<h4>Technician List</h4>
 				<ul className="collection">
 					{!loading &&
+						technicians !== null &&
 						technicians.map(technician => (
 							<TechnicianItem technician={technician} key={technician.id} />
 						))}
@@ -33,4 +29,13 @@ const TechnicianListModal = () => {
 	)
 }
 
-export default TechnicianListModal
+TechnicianListModal.propTypes = {
+	technician: PropTypes.object.isRequired,
+	getTechnicians: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+	technician: state.technician
+})
+
+export default connect(mapStateToProps, { getTechnicians })(TechnicianListModal)
